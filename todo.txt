@@ -1,1 +1,1 @@
-a:5:{i:0;a:2:{s:4:"todo";s:13:"1SELAMAT PAGI";s:6:"status";s:1:"0";}i:1;a:2:{s:4:"todo";s:5:"hahyy";s:6:"status";s:1:"1";}i:2;a:2:{s:4:"todo";s:10:"Haloo Kamu";s:6:"status";s:1:"1";}i:3;a:2:{s:4:"todo";s:12:"HELLO WORLD!";s:6:"status";s:1:"1";}i:4;a:2:{s:4:"todo";s:4:"loha";s:6:"status";s:1:"1";}}
+a:3:{i:0;a:2:{s:4:"todo";s:13:"1SELAMAT PAGI";s:6:"status";s:1:"0";}i:3;a:2:{s:4:"todo";s:12:"HELLO WORLD!";s:6:"status";s:1:"1";}i:4;a:2:{s:4:"todo";s:4:"loha";s:6:"status";s:1:"1";}}

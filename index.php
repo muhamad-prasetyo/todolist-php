@@ -31,6 +31,14 @@
         exit();
     }
 
+    // ? CEK VALIDASI HAPUS PADA KEY YG DITERIMA 
+    if(isset($_GET['hapus'])) {
+        unset($todos[$_GET['key']]);
+        file_put_contents('todo.txt', serialize($todos));
+        header('Location: index.php');
+        exit();
+    }
+
     print_r($todos);
 ?>
 
@@ -58,7 +66,7 @@
                     
             ?>
         </label>
-        <a href="#">Hapus</a>
+        <a href="index.php?hapus=1&key=<?php echo $key; ?>" onclick="return confirm('Apa anda yakin mau dihapus?');">Hapus</a>
     </li>
     <?php endforeach; ?>
     

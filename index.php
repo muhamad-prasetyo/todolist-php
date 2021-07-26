@@ -18,10 +18,21 @@
             'status' => 0
         ];
         file_put_contents('todo.txt', serialize($todos));
+        
+        header('Location: index.php');
+        exit();
+        
     }
 
-?>
+    if(isset($_GET['status'])) {
+        $todos[$_GET['key']]['status'] = $_GET['status'];
+        file_put_contents('todo.txt', serialize($todos));
+        header('Location: index.php');
+        exit();
+    }
 
+    print_r($todos);
+?>
 
 <h1>TODO LIST</h1>
 
@@ -32,10 +43,21 @@
 </form>
 
 <ul>
-    <?php foreach($todos as $todo) : ?>
+    <?php foreach($todos as $key => $value) : ?>
     <li>
-        <input type="checkbox" name="todo">
-        <label><?php echo $todo['todo']; ?></label>
+        <input type="checkbox" name="todo" onclick="window.location.href ='index.php?status=<?php echo ($value['status'] == 1) ? '0' : '1'; ?>&key=<?php echo $key; ?>'" <?php if($value['status'] == 1) echo 'checked'; ?>>
+        <label>
+            <?php
+                if($value['status'] == 1 ) {
+
+                    echo '<del>' . $value['todo'] . '</del>';
+                } else {
+                    echo $value['todo'];
+                }
+
+                    
+            ?>
+        </label>
         <a href="#">Hapus</a>
     </li>
     <?php endforeach; ?>

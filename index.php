@@ -4,9 +4,12 @@
 
     // * membuat variable array 
     $todos = [];
+    // ? cek apakah file todo.txt sudah ada atau belum 
+    if(file_exists('todo.txt')) {
+        $file = file_get_contents('todo.txt');
+        $todos = unserialize($file);
+    }
 
-    $file = file_get_contents('todo.txt');
-    $todos = unserialize($file);
     // ? cek apakah ada data terkirim 
     if(isset($_POST['todo'])) {
         $data = $_POST['todo'];
@@ -29,24 +32,12 @@
 </form>
 
 <ul>
+    <?php foreach($todos as $todo) : ?>
     <li>
         <input type="checkbox" name="todo">
-        <label for="">Todo 1</label>
+        <label><?php echo $todo['todo']; ?></label>
         <a href="#">Hapus</a>
     </li>
-    <li>
-        <input type="checkbox" name="todo">
-        <label for="">Todo 1</label>
-        <a href="#">Hapus</a>
-    </li>
-    <li>
-        <input type="checkbox" name="todo">
-        <label for="">Todo 1</label>
-        <a href="#">Hapus</a>
-    </li>
-    <li>
-        <input type="checkbox" name="todo">
-        <label for="">Todo 1</label>
-        <a href="#">Hapus</a>
-    </li>
+    <?php endforeach; ?>
+    
 </ul>
